@@ -20,10 +20,10 @@ async function fetchPosts() {
     }
 }
 
-function showPosts(posts) {
+function showPosts(posts ) {
     let postsHTML = '';
 
-    posts.forEach((post) => {
+    posts.forEach((post , index) => {
         const image = post.thumbImage.startsWith('/')
             ? `https://api-rest-post-diegocandido.herokuapp.com${post.thumbImage}`
             : post.thumbImage;
@@ -33,7 +33,7 @@ function showPosts(posts) {
                 <img class="w-full h-48 object-cover" src="${image}" alt="${post.thumbImageAltText}">
                 <div class="p-4">
                     <h2 class="text-xl font-semibold mb-2">${post.title}</h2>
-                    <p class="text-gray-700">${post.description}</p>
+                    <a href="post.html?id=${index }" class="mt-4 inline-block text-blue-500 hover:underline">Ler Mais</a>
                     <p class="mt-2 text-gray-500">Por ${post.profileName}, ${post.postDate}</p>
                 </div>
             </div>`;
